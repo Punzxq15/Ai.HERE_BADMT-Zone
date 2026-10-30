@@ -1,0 +1,1655 @@
+/* web/css/components.css — สไตล์ปุ่ม, การ์ด, ป้าย, ช่องกรอก, โมดัล, Navbar, Sidebar, การ์ดสินค้า, และหน้า Login/Sign Up โฉมใหม่ */
+
+/* Buttons (_BUTTON_KINDS + _BUTTON_SIZES) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease, transform 0.08s ease;
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0 14px;
+}
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.btn-sm {
+  height: 32px;
+  border-radius: 8px;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  padding: 0 12px;
+}
+.btn-md {
+  height: 38px;
+  border-radius: 10px;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  padding: 0 16px;
+}
+.btn-lg {
+  height: 44px;
+  border-radius: 10px;
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  padding: 0 20px;
+}
+
+/* Kinds */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--on-primary);
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: #FFFFFF;
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-secondary-hover);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: #FFFFFF;
+}
+.btn-danger:hover:not(:disabled) {
+  background-color: var(--color-danger-hover);
+}
+
+.btn-success {
+  background-color: var(--color-success);
+  color: #FFFFFF;
+}
+.btn-success:hover:not(:disabled) {
+  background-color: var(--color-success-hover);
+}
+
+.btn-info {
+  background-color: var(--color-info);
+  color: #FFFFFF;
+}
+.btn-info:hover:not(:disabled) {
+  background-color: var(--color-info-hover);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text-main);
+}
+.btn-outline:hover:not(:disabled) {
+  background-color: var(--color-surface-alt);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-text-main);
+}
+.btn-ghost:hover:not(:disabled) {
+  background-color: var(--color-surface-alt);
+}
+
+/* Inputs & Entries (ThemeManager.entry_style) */
+.input, .select, .textarea {
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
+  font-size: var(--fs-body);
+  padding: 0 12px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+}
+.input:focus, .select:focus, .textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-soft);
+}
+.input:disabled, .select:disabled, .textarea:disabled {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+.textarea {
+  height: auto;
+  min-height: 90px;
+  padding: 8px 12px;
+  resize: vertical;
+}
+
+/* Cards (ThemeManager.make_card) */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+}
+.card-alt {
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+/* Badges / Pills (_BADGE_STYLES) */
+.pill, .badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 11px;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pill-primary { background: var(--badge-primary-bg); color: var(--badge-primary-fg); }
+.pill-accent { background: var(--badge-accent-bg); color: var(--badge-accent-fg); }
+.pill-danger { background: var(--badge-danger-bg); color: var(--badge-danger-fg); }
+.pill-success { background: var(--badge-success-bg); color: var(--badge-success-fg); }
+.pill-warning { background: var(--badge-warning-bg); color: var(--badge-warning-fg); }
+.pill-info { background: var(--badge-info-bg); color: var(--badge-info-fg); }
+.pill-muted { background: var(--badge-muted-bg); color: var(--badge-muted-fg); }
+.pill-online { background: var(--badge-online-bg); color: var(--badge-online-fg); }
+.pill-offline { background: var(--badge-offline-bg); color: var(--badge-offline-fg); }
+.pill-suspended { background: var(--badge-suspended-bg); color: var(--badge-suspended-fg); }
+
+/* Segmented Control (ThemeManager.segmented_style) */
+.segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  background-color: var(--color-surface-alt);
+  padding: 4px;
+  border-radius: 10px;
+  gap: 4px;
+}
+.segmented-btn {
+  border: none;
+  background: transparent;
+  color: var(--color-text-main);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.segmented-btn:hover:not(.active) {
+  background-color: var(--color-border);
+}
+.segmented-btn.active {
+  background-color: var(--color-primary);
+  color: var(--on-primary);
+}
+
+/* Navbar (ui/components/navbar.py) */
+.navbar {
+  height: 64px;
+  background-color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  gap: 12px;
+  color: #FFFFFF;
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.navbar-logo {
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.navbar-logo:hover {
+  background: var(--color-secondary-hover);
+}
+.navbar-nav-btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-size: var(--fs-body);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 36px;
+}
+.navbar-nav-btn:hover {
+  background: var(--color-secondary-hover);
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.navbar-icon-wrap {
+  position: relative;
+  display: inline-flex;
+}
+.navbar-badge {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  min-width: 18px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+  font-size: var(--fs-tiny);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* SearchBar (ui/components/search_bar.py) */
+.searchbar-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.searchbar-shell {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  width: 310px;
+  border-radius: 18px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 0 12px;
+  gap: 6px;
+}
+.searchbar-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--color-text-main);
+  font-size: var(--fs-body);
+  width: 100%;
+}
+.searchbar-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  border: none;
+  background: var(--color-primary);
+  color: var(--on-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.searchbar-btn:hover {
+  background: var(--color-primary-hover);
+}
+.searchbar-suggestions {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  min-width: 280px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  box-shadow: var(--shadow-modal);
+  z-index: 250;
+  padding: 4px;
+}
+.searchbar-suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--color-text-main);
+  font-size: var(--fs-small);
+  text-align: left;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.searchbar-suggestion-item:hover {
+  background: var(--color-surface-alt);
+}
+
+/* Sidebar (ui/components/sidebar.py) */
+.sidebar {
+  width: 230px;
+  min-height: 100vh;
+  background-color: var(--color-secondary);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar-top {
+  padding: 18px 16px 8px;
+}
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-primary);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+}
+.sidebar-role {
+  color: #B0B5C0;
+  font-size: var(--fs-small);
+  margin-top: 2px;
+}
+.sidebar-divider {
+  height: 1px;
+  background: #2C3140;
+  margin: 8px 12px;
+}
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 10px;
+}
+.sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 38px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #FFFFFF;
+  font-size: var(--fs-body);
+  padding: 0 12px;
+  cursor: pointer;
+  text-align: left;
+}
+.sidebar-btn:hover {
+  background: var(--color-secondary-hover);
+}
+.sidebar-btn.active {
+  background: var(--color-primary);
+  color: var(--on-primary);
+  font-weight: 700;
+}
+.sidebar-bottom {
+  padding: 8px 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sidebar-contact-card {
+  background: #252A36;
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+}
+
+/* ProductCard (ui/components/product_card.py — 220x305, 3:4 ratio, 1:1 image) */
+.product-card {
+  width: 220px;
+  min-height: 305px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+}
+.product-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+.product-card-img-wrap {
+  position: relative;
+  width: 196px;
+  height: 196px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-surface-alt);
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+.product-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.product-card-discount {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--color-accent);
+  color: #FFFFFF;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+}
+.product-card-heart {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+  background: var(--color-surface-alt);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+.product-card-heart:hover {
+  background: var(--color-border);
+}
+.product-card-out {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: var(--color-secondary);
+  color: #FFFFFF;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+}
+.product-card-brand {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+  margin-top: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.product-card-name {
+  color: var(--color-text-main);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  line-height: 1.3;
+  height: 36px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-top: 1px;
+}
+.product-card-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+.product-card-price {
+  color: var(--color-accent);
+  font-size: var(--fs-price);
+  font-weight: 700;
+}
+.product-card-price-normal {
+  color: var(--color-text-main);
+  font-size: var(--fs-price);
+  font-weight: 700;
+}
+.product-card-price-old {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+  text-decoration: line-through;
+}
+.product-card-countdown {
+  color: var(--color-accent);
+  font-size: var(--fs-tiny);
+  margin-top: 2px;
+}
+
+/* WrapGrid / ProductGrid */
+.wrap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 220px));
+  gap: 14px;
+  justify-content: start;
+}
+
+/* Dialogs & Modals (ui/components/dialogs.py) */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 18, 22, 0.62);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+.modal-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-modal);
+  width: 100%;
+  max-width: 440px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 22px 24px 20px;
+  color: var(--color-text-main);
+}
+
+/* Tables (ui/pages/admin/common.py) */
+.admin-table-header {
+  display: grid;
+  background: var(--color-surface-alt);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 6px;
+  align-items: center;
+  gap: 8px;
+}
+.admin-table-row {
+  display: grid;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =========================================================
+   NEW LOGIN & SIGN UP UI (AI.HERE Bad🅜-Zone — 1456×819 ref)
+   ========================================================= */
+.auth2-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  background-color: #E9E9E9 !important;
+  color: #111111 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'Kanit', 'Arimo', sans-serif;
+}
+
+/* พื้นหลังสุด: ตัวอักษรเอียง -40 องศา วิ่งเฉียงขึ้น-ลงสลับฟันปลาช้าๆ เบาๆ */
+.auth2-bg-pattern {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  background-color: #E9E9E9;
+  user-select: none;
+}
+.auth2-bg-rotator {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 280vmax;
+  height: 280vmax;
+  transform: translate(-50%, -50%) rotate(-40deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.auth2-bg-row {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.02;
+}
+.auth2-bg-track {
+  display: inline-flex;
+  width: max-content;
+  will-change: transform;
+}
+@keyframes auth2BgMarqueeUp {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0%, 0, 0); }
+}
+@keyframes auth2BgMarqueeDown {
+  0% { transform: translate3d(0%, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+.auth2-bg-track-up {
+  animation: auth2BgMarqueeUp 75s linear infinite;
+}
+.auth2-bg-track-down {
+  animation: auth2BgMarqueeDown 75s linear infinite;
+}
+.auth2-bg-half {
+  display: inline-flex;
+  align-items: center;
+}
+.auth2-bg-word {
+  font-family: 'Arimo', Arial, Helvetica, sans-serif;
+  font-size: 74px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #B4B4B4;
+  opacity: 0.62;
+  padding-right: 44px;
+  text-transform: uppercase;
+}
+
+.auth2-scale-shell {
+  --auth-scale: 1;
+  position: relative;
+  z-index: 2;
+  width: 1294px;
+  height: 657px;
+  transform: scale(var(--auth-scale));
+  transform-origin: center center;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth2-main-card {
+  position: relative;
+  width: 1294px;
+  height: 657px;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(255, 182, 0, 0.42);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ข้อความแบรนด์มุมบนขวา AI.HERE Bad🅜-Zone (เฉพาะหน้า Login) */
+.auth2-brand-corner {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-family: 'Arimo', 'Kanit', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #111111;
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  z-index: 15;
+  pointer-events: none;
+  transition: opacity 320ms ease;
+}
+.auth2-main-card[data-mode="login"] .auth2-brand-corner {
+  opacity: 1;
+}
+.auth2-main-card[data-mode="signup"] .auth2-brand-corner {
+  opacity: 0;
+}
+.auth2-m-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: #111111;
+  color: #FFFFFF;
+  font-size: 8.5px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 1px;
+}
+
+/* โซนแบนเนอร์สีเหลือง (647 × 657) พร้อมเงาตะเข็บกลางที่เคลื่อนที่ติดไปกับขอบแบนเนอร์เสมอ ไม่บัคตอนสลับฉาก */
+.auth2-banner-zone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 647px;
+  height: 657px;
+  background-color: #FFB600;
+  overflow: hidden;
+  z-index: 20;
+  box-shadow: 0 0 70px 18px rgba(0, 0, 0, 0.50);
+  transition: transform 650ms cubic-bezier(0.65, 0, 0.35, 1), border-radius 650ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.auth2-main-card[data-mode="login"] .auth2-banner-zone {
+  transform: translateX(0px);
+  border-radius: 50px 0 0 50px;
+}
+.auth2-main-card[data-mode="signup"] .auth2-banner-zone {
+  transform: translateX(647px);
+  border-radius: 0 50px 50px 0;
+}
+
+.auth2-banner-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 330px at 50% 48%, #FFE08A 0%, rgba(255, 218, 110, 0.65) 42%, rgba(255, 182, 0, 0) 100%);
+  pointer-events: none;
+}
+
+/* เงาของสินค้าเป็นวงรีเบลอๆ ใต้รูปรองเท้า (ไม่สร้างเงา drop-shadow จากตัวรูป) */
+.auth2-ground-shadow-oval {
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  width: 420px;
+  height: 54px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(45, 28, 0, 0.62) 0%, rgba(80, 50, 0, 0.36) 48%, rgba(122, 78, 0, 0) 78%);
+  filter: blur(13px);
+  pointer-events: none;
+}
+
+/* กรอบวางรูปรองเท้า (สูงสุด 85% × 70%, contain, ไม่มี drop-shadow จากรูป) */
+.auth2-shoe-stage {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 550px;
+  height: 460px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+@keyframes auth2ShoeFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-6px) scale(1); }
+}
+
+.auth2-shoe-img {
+  position: absolute;
+  max-width: 535px;
+  max-height: 455px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: none !important;
+  transition: opacity 700ms ease, transform 700ms ease;
+  opacity: 1;
+}
+@keyframes auth2ShoeEnterAnim {
+  0% { opacity: 0; transform: translateY(10px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0px) scale(1); }
+}
+@keyframes auth2ShoeLeaveAnim {
+  0% { opacity: 1; transform: translateY(0px) scale(1); }
+  100% { opacity: 0; transform: translateY(-8px) scale(0.96); }
+}
+.auth2-shoe-float {
+  animation: auth2ShoeFloat 3.2s ease-in-out infinite;
+}
+.auth2-shoe-enter {
+  animation: auth2ShoeEnterAnim 700ms ease forwards !important;
+}
+.auth2-shoe-leave {
+  animation: auth2ShoeLeaveAnim 700ms ease forwards !important;
+  pointer-events: none;
+}
+
+/* ปุ่มสลับ LOGIN / SIGN UP (Pill — กว้าง 260 × สูง 60, ศูนย์กลาง 647, 97, คำไม่สลับฝั่ง เปลี่ยนเฉพาะสีช่องแคปซูล) */
+.auth2-pill {
+  position: absolute;
+  left: 517px;
+  top: 67px;
+  width: 260px;
+  height: 60px;
+  border-radius: 999px;
+  display: flex;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+  z-index: 30;
+}
+.auth2-pill-half {
+  width: 130px;
+  height: 60px;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arimo', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: #111111 !important;
+  opacity: 1 !important;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 450ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.auth2-pill-half span {
+  color: #111111 !important;
+  opacity: 1 !important;
+  pointer-events: none;
+}
+.auth2-main-card[data-mode="login"] .auth2-pill-left {
+  background-color: #FFFFFF;
+  border-right: 1px solid rgba(0, 0, 0, 0.14);
+}
+.auth2-main-card[data-mode="login"] .auth2-pill-right {
+  background-color: #FFB600;
+}
+.auth2-main-card[data-mode="signup"] .auth2-pill-left {
+  background-color: #FFB600;
+  border-right: 1px solid rgba(0, 0, 0, 0.14);
+}
+.auth2-main-card[data-mode="signup"] .auth2-pill-right {
+  background-color: #FFFFFF;
+}
+
+/* โลโก้ร้าน (115 × 115 px, No BG, ไม่มีขอบ ไม่มีวงกลม ไม่มีพื้นหลัง ไม่มีเงา) */
+.auth2-logo-box {
+  position: absolute;
+  width: 115px;
+  height: 115px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+.auth2-logo-login {
+  left: 266px; /* 647 + 266 = 913 (กึ่งกลางการ์ด Login x=970) */
+  top: 40px;
+}
+.auth2-logo-signup {
+  left: 226px; /* กึ่งกลางการ์ด Sign Up x=283.5 */
+  top: 40px;
+}
+.auth2-logo-img {
+  max-width: 115px;
+  max-height: 115px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* โซนฟอร์ม LOGIN (ฝั่งขวา x: 647..1294) */
+.auth2-zone-login {
+  position: absolute;
+  left: 647px;
+  top: 0;
+  width: 647px;
+  height: 657px;
+  z-index: 10;
+}
+.auth2-main-card[data-mode="login"] .auth2-zone-login {
+  opacity: 1;
+  transform: translateX(0px);
+  pointer-events: auto;
+  transition: opacity 390ms cubic-bezier(0.33, 1, 0.68, 1) 260ms,
+              transform 390ms cubic-bezier(0.33, 1, 0.68, 1) 260ms;
+}
+.auth2-main-card[data-mode="signup"] .auth2-zone-login {
+  opacity: 0;
+  transform: translateX(30px);
+  pointer-events: none;
+  transition: opacity 260ms cubic-bezier(0.32, 0, 0.67, 0) 0ms,
+              transform 260ms cubic-bezier(0.32, 0, 0.67, 0) 0ms;
+}
+
+/* การ์ดฟอร์ม Login (x: 745→1194 => left: 98px, y: 187→598 => 449 × 411, ขอบมน 12px) */
+.auth2-login-card {
+  position: absolute;
+  left: 98px;
+  top: 187px;
+  width: 449px;
+  height: 411px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 12px 10px 20px rgba(0, 0, 0, 0.35), -1px -1px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* โซนฟอร์ม SIGN UP (ฝั่งซ้าย x: 0..647, เลื่อนขึ้นลงได้) */
+.auth2-zone-signup {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 647px;
+  height: 657px;
+  z-index: 10;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 120, 120, 0.35) transparent;
+}
+.auth2-zone-signup::-webkit-scrollbar {
+  width: 5px;
+}
+.auth2-zone-signup::-webkit-scrollbar-track {
+  background: transparent;
+}
+.auth2-zone-signup::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 120, 0.32);
+  border-radius: 999px;
+}
+.auth2-main-card[data-mode="signup"] .auth2-zone-signup {
+  opacity: 1;
+  transform: translateX(0px);
+  pointer-events: auto;
+  transition: opacity 390ms cubic-bezier(0.33, 1, 0.68, 1) 260ms,
+              transform 390ms cubic-bezier(0.33, 1, 0.68, 1) 260ms;
+}
+.auth2-main-card[data-mode="login"] .auth2-zone-signup {
+  opacity: 0;
+  transform: translateX(-30px);
+  pointer-events: none;
+  transition: opacity 260ms cubic-bezier(0.32, 0, 0.67, 0) 0ms,
+              transform 260ms cubic-bezier(0.32, 0, 0.67, 0) 0ms;
+}
+
+.auth2-signup-scroll-inner {
+  position: relative;
+  width: 647px;
+  height: 1160px; /* 187 + 949 + 24 = 1160px => ระยะ scroll รวม 503px เหลือขอบล่าง 24px พอดี */
+}
+
+/* การ์ดฟอร์ม Sign Up (x: 58→509, y: 187, กว้าง 451 × สูง 949, ขอบมน 12px) */
+.auth2-signup-card {
+  position: absolute;
+  left: 58px;
+  top: 187px;
+  width: 451px;
+  height: 949px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 12px 10px 20px rgba(0, 0, 0, 0.35), -1px -1px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* องค์ประกอบภายในฟอร์ม (ตัวอักษร ช่องกรอก ปุ่ม) */
+.auth2-title {
+  position: absolute;
+  font-family: 'Kanit', sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #111111;
+}
+.auth2-subtitle {
+  position: absolute;
+  font-family: 'Kanit', sans-serif;
+  font-size: 11.2px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #111111;
+}
+.auth2-sec-title {
+  position: absolute;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #FFB600;
+}
+.auth2-label {
+  position: absolute;
+  font-family: 'Kanit', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #111111;
+}
+.auth2-input {
+  position: absolute;
+  border-radius: 6px;
+  border: 1px solid #111111;
+  background-color: #FFFFFF !important;
+  color: #111111 !important;
+  font-family: 'Kanit', 'Arimo', sans-serif;
+  font-size: 13px;
+  padding: 0 10px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.auth2-input:focus {
+  border-color: #FFB600;
+  box-shadow: 0 0 0 2px rgba(255, 182, 0, 0.28);
+}
+
+.auth2-help-row {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 16px;
+}
+.auth2-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: 'Kanit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #111111;
+  cursor: pointer;
+}
+.auth2-link-btn:hover {
+  color: #D49600;
+}
+
+.auth2-btn {
+  position: absolute;
+  border-radius: 6px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: filter 0.15s ease, background-color 0.15s ease;
+  padding: 0 12px;
+}
+.auth2-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.auth2-btn-yellow {
+  background-color: #FFB600;
+  border: 1px solid #FFB600;
+  color: #111111;
+}
+.auth2-btn-yellow:hover:not(:disabled) {
+  background-color: #EAA700;
+  border-color: #EAA700;
+}
+.auth2-btn-red {
+  background-color: #E63946;
+  border: 1px solid #E63946;
+  color: #FFFFFF;
+}
+.auth2-btn-red:hover:not(:disabled) {
+  background-color: #D32F3C;
+  border-color: #D32F3C;
+}
+.auth2-btn-outline {
+  background-color: #FFFFFF;
+  border: 1px solid #111111;
+  color: #111111;
+}
+.auth2-btn-outline:hover:not(:disabled) {
+  background-color: #F4F4F4;
+}
+
+/* กล่อง OTP ในหน้า Sign Up (ลำดับ 15: 724→801, สูง 77) */
+.auth2-otp-box {
+  position: absolute;
+  background-color: #E8E8E8;
+  border: 1px solid #FFB600;
+  border-radius: 8px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.auth2-otp-title {
+  font-family: 'Kanit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.15;
+}
+.auth2-otp-mid {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 26px;
+}
+.auth2-otp-send-btn {
+  width: 132px;
+  height: 26px;
+  border-radius: 5px;
+  background-color: #FFB600;
+  border: none;
+  color: #111111;
+  font-family: 'Kanit', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.auth2-otp-send-btn:hover:not(:disabled) {
+  background-color: #EAA700;
+}
+.auth2-otp-input {
+  width: 260px;
+  height: 26px;
+  border-radius: 5px;
+  border: 1px solid #111111;
+  background-color: #FFFFFF !important;
+  color: #111111 !important;
+  font-family: 'Arimo', 'Kanit', sans-serif;
+  font-size: 12.5px;
+  padding: 0 8px;
+  outline: none;
+}
+.auth2-otp-input:focus {
+  border-color: #FFB600;
+}
+.auth2-otp-hint {
+  font-family: 'Kanit', sans-serif;
+  font-size: 10.2px;
+  font-weight: 400;
+  color: #111111;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ข้อความแจ้งข้อผิดพลาด/สำเร็จ แบบลอย ไม่ทำให้เลย์เอาต์ขยับ */
+.auth2-floating-err {
+  position: absolute;
+  font-family: 'Kanit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #E63946;
+  line-height: 1.2;
+  min-height: 16px;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.auth2-card-notice {
+  position: absolute;
+  top: -36px;
+  left: 14px;
+  right: 14px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background-color: #16A34A;
+  color: #FFFFFF;
+  font-family: 'Kanit', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 25;
+}
+.auth2-card-notice[data-kind="info"] {
+  background-color: #FFB600;
+  color: #111111;
+}
+
+/* พื้นหลังลายตารางหมากรุกสำหรับพรีวิวความโปร่งใสในหน้าตั้งค่าของ Owner */
+.checkerboard-preview {
+  background-color: #FFFFFF;
+  background-image:
+    linear-gradient(45deg, #E2E8F0 25%, transparent 25%),
+    linear-gradient(-45deg, #E2E8F0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #E2E8F0 75%),
+    linear-gradient(-45deg, transparent 75%, #E2E8F0 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+/* Idle Lock Overlay */
+.idle-lock-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 18, 22, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* =========================================================
+   1) Navbar Long Shop Name Ellipsis (ข้อ 1.5)
+   ========================================================= */
+.navbar-logo {
+  max-width: 280px;
+  overflow: hidden;
+}
+.navbar-logo > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  max-width: 235px;
+  vertical-align: bottom;
+}
+
+/* =========================================================
+   2) Popular Recommended Products 5-Column Grid (ข้อ 2)
+   เฉพาะกริดที่มี .wrap-grid--cols-5 เท่านั้น ห้ามกระทบ .wrap-grid หน้าอื่น
+   ========================================================= */
+.wrap-grid--cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+}
+.wrap-grid--cols-5 .product-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 320px;
+  padding: 12px;
+}
+.wrap-grid--cols-5 .product-card-img-wrap {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+@media (max-width: 1200px) {
+  .wrap-grid--cols-5 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+@media (max-width: 920px) {
+  .wrap-grid--cols-5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+@media (max-width: 640px) {
+  .wrap-grid--cols-5 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+/* =========================================================
+   3) Profile Read-Only vs Edit Mode (ข้อ 3)
+   ========================================================= */
+.input[readonly],
+.textarea[readonly] {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+  cursor: default;
+}
+.input[readonly]:focus,
+.textarea[readonly]:focus {
+  border-color: var(--color-border);
+  box-shadow: none;
+}
+
+/* =========================================================
+   4) Write Review Centered Layout & Media Upload (ข้อ 4.2 & 4.3)
+   ========================================================= */
+.write-review-shell {
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+}
+.write-review-card {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+.review-media-dropzone {
+  border: 2px dashed var(--color-border);
+  background: var(--color-surface-alt);
+  border-radius: 12px;
+  padding: 14px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.review-media-dropzone:hover:not(.disabled),
+.review-media-dropzone.dragover:not(.disabled) {
+  border-color: var(--color-primary);
+}
+.review-media-dropzone.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.review-media-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.review-media-item {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  flex-shrink: 0;
+}
+.review-media-item img,
+.review-media-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.review-media-badge {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  background: rgba(17, 19, 24, 0.78);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+.review-media-remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-danger);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+.review-display-media {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.review-display-thumb {
+  width: 84px;
+  height: 84px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  cursor: pointer;
+  position: relative;
+}
+.review-display-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.review-display-video {
+  max-width: 240px;
+  max-height: 160px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: #000000;
+}
+
+/* =========================================================
+   5) Toast Notifications & Inline Field Errors (ข้อ 5)
+   ========================================================= */
+.toast-container {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 2500;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: min(380px, calc(100vw - 28px));
+  width: 380px;
+  pointer-events: none;
+}
+.toast-item {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 13px 16px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-modal);
+  color: #FFFFFF;
+  font-family: var(--font-family);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  line-height: 1.4;
+  word-break: break-word;
+  cursor: pointer;
+  transform: translateX(calc(100% + 28px));
+  opacity: 0;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
+}
+.toast-item--visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+.toast-item--leaving {
+  transform: translateX(calc(100% + 28px));
+  opacity: 0;
+}
+.toast-item--success {
+  background-color: var(--color-success);
+  border-left: 6px solid #DCFCE7;
+}
+.toast-item--error {
+  background-color: var(--color-danger);
+  border-left: 6px solid #FEE2E2;
+}
+.toast-item__icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: inline-flex;
+}
+.toast-item__body {
+  flex: 1;
+  min-width: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .toast-item,
+  .toast-item--visible,
+  .toast-item--leaving {
+    transform: none !important;
+    transition: opacity 0.2s ease !important;
+  }
+}
+
+.input.input-error,
+.select.input-error,
+.textarea.input-error,
+.auth2-input.input-error,
+.auth2-otp-input.input-error {
+  border-color: var(--color-danger) !important;
+  box-shadow: 0 0 0 2px var(--color-danger-soft) !important;
+}
+.field-inline-error {
+  color: var(--color-danger);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  line-height: 1.35;
+  margin-top: 4px;
+}
+
+/* =========================================================
+   6) Interactive Time Grid / Calendar Table & Chat Image Upload
+   ========================================================= */
+.time-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  margin-top: 6px;
+}
+.time-slot-btn {
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-main);
+  font-size: var(--fs-tiny);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+.time-slot-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: #111318;
+}
+.time-slot-btn.active {
+  background: var(--color-primary);
+  color: #111318;
+  border-color: var(--color-text-main);
+}
+.chat-bubble-image {
+  max-width: 240px;
+  max-height: 220px;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  margin-bottom: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.chat-pending-image-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  margin-bottom: 6px;
+}
+
+/* Aliases for review upload zone, thumbs, display images, and chat attachment preview */
+.review-upload-zone {
+  border: 2px dashed var(--color-border);
+  background: var(--color-surface-alt);
+  border-radius: 12px;
+  padding: 12px 14px;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.review-upload-zone.dragover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+.review-media-thumb {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  flex-shrink: 0;
+}
+.review-media-thumb img,
+.review-media-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.review-display-img {
+  width: 84px;
+  height: 84px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+.review-display-img:hover {
+  transform: scale(1.04);
+}
+.chat-attach-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+}
+.chat-attach-preview img {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+}

@@ -1,0 +1,42 @@
+# ความลับ / คีย์ API
+.env
+secrets/
+
+# ฐานข้อมูลและไฟล์ที่สร้างตอนรัน
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/.fonts_installed
+data/backups/
+data/exports/
+data/session_token.json
+
+# ไฟล์ที่ผู้ใช้อัปโหลด (เก็บโฟลเดอร์ไว้ด้วย .gitkeep)
+assets/slips/*
+!assets/slips/.gitkeep
+assets/receipts/*
+!assets/receipts/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# เครื่องมือแก้ไขโค้ด / ระบบปฏิบัติการ
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+data/ui_prefs.json
+assets/images/chat/*
+!assets/images/chat/.gitkeep
+assets/images/logo_*.png
+*.log
+*.key
+*.pem
+.env.*
+!.env.example
+.pytest_cache/

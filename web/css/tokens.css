@@ -1,0 +1,182 @@
+/* web/css/tokens.css — ถอดจาก ui/theme.py 100% */
+@font-face {
+  font-family: 'Kanit';
+  src: url('/assets/fonts/Kanit-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Kanit';
+  src: url('/assets/fonts/Kanit-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Kanit';
+  src: url('/assets/fonts/Kanit-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Kanit';
+  src: url('/assets/fonts/Kanit-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Arimo';
+  src: url('/assets/fonts/Arimo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Arimo';
+  src: url('/assets/fonts/Arimo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root, [data-theme="light"] {
+  --font-family: 'Kanit', 'Arimo', sans-serif;
+  --on-primary: #111318;
+
+  /* หลัก / สปอร์ต */
+  --color-primary: #FFB703;
+  --color-primary-hover: #E09E00;
+  --color-primary-soft: #FFF4CC;
+  --color-secondary: #1E212B;
+  --color-secondary-hover: #2C3140;
+  --color-accent: #E63946;
+  --color-accent-hover: #C82333;
+  --color-accent-soft: #FFE4E6;
+
+  /* พื้นหลัง / การ์ด / เส้นแบ่ง */
+  --color-background: #F6F7F9;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #ECEFF4;
+  --color-border: #CBD5E1;
+
+  /* ข้อความ */
+  --color-text-main: #111318;
+  --color-text: #111318;
+  --color-text-muted: #334155;
+  --color-muted: #475569;
+
+  /* สถานะ */
+  --color-success: #16A34A;
+  --color-success-hover: #15803D;
+  --color-success-soft: #DCFCE7;
+  --color-warning: #D97706;
+  --color-warning-soft: #FEF3C7;
+  --color-danger: #E63946;
+  --color-danger-hover: #C82333;
+  --color-danger-soft: #FEE2E2;
+  --color-info: #0284C7;
+  --color-info-hover: #0369A1;
+  --color-blue-soft: #E0F2FE;
+
+  /* ดาวรีวิว */
+  --color-star: #FFB703;
+  --color-star-off: #CBD5E1;
+
+  /* Badges */
+  --badge-primary-bg: #FFF4CC;
+  --badge-primary-fg: #92400E;
+  --badge-accent-bg: #FFE4E6;
+  --badge-accent-fg: #E63946;
+  --badge-danger-bg: #FEE2E2;
+  --badge-danger-fg: #E63946;
+  --badge-success-bg: #DCFCE7;
+  --badge-success-fg: #16A34A;
+  --badge-warning-bg: #FEF3C7;
+  --badge-warning-fg: #D97706;
+  --badge-info-bg: #E0F2FE;
+  --badge-info-fg: #0284C7;
+  --badge-muted-bg: #ECEFF4;
+  --badge-muted-fg: #334155;
+  --badge-online-bg: #DCFCE7;
+  --badge-online-fg: #15803D;
+  --badge-offline-bg: #E2E8F0;
+  --badge-offline-fg: #334155;
+  --badge-suspended-bg: #FEE2E2;
+  --badge-suspended-fg: #B91C1C;
+
+  /* Font sizes (_FONT_SPEC) */
+  --fs-h1: 28px;
+  --fs-h2: 22px;
+  --fs-h3: 18px;
+  --fs-body: 14px;
+  --fs-small: 12px;
+  --fs-tiny: 11px;
+  --fs-price: 16px;
+  --fs-price-big: 22px;
+
+  --shadow-card: 0 2px 8px rgba(17, 19, 24, 0.05);
+  --shadow-modal: 0 16px 40px rgba(17, 19, 24, 0.25);
+}
+
+[data-theme="dark"] {
+  --color-primary: #FFB703;
+  --color-primary-hover: #E09E00;
+  --color-primary-soft: #3D3114;
+  --color-secondary: #12141A;
+  --color-secondary-hover: #252A36;
+  --color-accent: #EF4444;
+  --color-accent-hover: #DC2626;
+  --color-accent-soft: #3F1D24;
+
+  --color-background: #101216;
+  --color-surface: #1A1D24;
+  --color-surface-alt: #252A34;
+  --color-border: #333A48;
+
+  --color-text-main: #F8FAFC;
+  --color-text: #F8FAFC;
+  --color-text-muted: #CBD5E1;
+  --color-muted: #64748B;
+
+  --color-success: #22C55E;
+  --color-success-hover: #16A34A;
+  --color-success-soft: #143222;
+  --color-warning: #F59E0B;
+  --color-warning-soft: #3B2A12;
+  --color-danger: #EF4444;
+  --color-danger-hover: #DC2626;
+  --color-danger-soft: #3F1D22;
+  --color-info: #38BDF8;
+  --color-info-hover: #0EA5E9;
+  --color-blue-soft: #132C44;
+
+  --color-star: #FFB703;
+  --color-star-off: #3A4150;
+
+  --badge-primary-bg: #3D3114;
+  --badge-primary-fg: #FDE68A;
+  --badge-accent-bg: #3F1D24;
+  --badge-accent-fg: #EF4444;
+  --badge-danger-bg: #3F1D22;
+  --badge-danger-fg: #EF4444;
+  --badge-success-bg: #143222;
+  --badge-success-fg: #22C55E;
+  --badge-warning-bg: #3B2A12;
+  --badge-warning-fg: #F59E0B;
+  --badge-info-bg: #132C44;
+  --badge-info-fg: #38BDF8;
+  --badge-muted-bg: #252A34;
+  --badge-muted-fg: #CBD5E1;
+  --badge-online-bg: #143222;
+  --badge-online-fg: #4ADE80;
+  --badge-offline-bg: #334155;
+  --badge-offline-fg: #E2E8F0;
+  --badge-suspended-bg: #451A1A;
+  --badge-suspended-fg: #F87171;
+
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.28);
+  --shadow-modal: 0 18px 44px rgba(0, 0, 0, 0.6);
+}
